@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-blue-400 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white w-full max-w-md rounded-2xl shadow-lg p-8">
+
+        <!-- Toggle Buttons -->
+        <div class="flex justify-center mb-6">
+            <button onclick="showLogin()" id="loginBtn"
+                class="px-4 py-2 font-semibold text-white bg-blue-600 rounded-l-lg :hover bg-blue-200">
+                Sign In
+            </button>
+            <button onclick="showSignup()" id="signupBtn"
+                class="px-4 py-2 font-semibold text-gray-700 bg-gray-200 rounded-r-lg">
+                Sign Up
+            </button>
+        </div>
+
+        <!-- Sign In Form -->
+        <form id="loginForm" class="space-y-4">
+            <h2 class="text-2xl font-bold text-center mb-4">Welcome Back</h2>
+
+            <input type="email" placeholder="Email"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+            <input type="password" placeholder="Password"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+            <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                Sign In
+            </button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signupForm" class="space-y-4 hidden">
+            <h2 class="text-2xl font-bold text-center mb-4">Create Account</h2>
+
+            <input type="text" placeholder="Full Name"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+
+            <input type="email" placeholder="Email"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+
+            <input type="password" placeholder="Password"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+
+            <input type="password" placeholder="Confirm Password"
+                class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" />
+
+            <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700">
+                Sign Up
+            </button>
+        </form>
+
+    </div>
+
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const signupForm = document.getElementById("signupForm");
+        const loginBtn = document.getElementById("loginBtn");
+        const signupBtn = document.getElementById("signupBtn");
+
+        function showLogin() {
+            loginForm.classList.remove("hidden");
+            signupForm.classList.add("hidden");
+
+            loginBtn.classList.add("bg-blue-600", "text-white");
+            loginBtn.classList.remove("bg-gray-200", "text-gray-700");
+
+            signupBtn.classList.add("bg-gray-200", "text-gray-700");
+            signupBtn.classList.remove("bg-green-600", "text-white");
+        }
+
+        function showSignup() {
+            signupForm.classList.remove("hidden");
+            loginForm.classList.add("hidden");
+
+            signupBtn.classList.add("bg-green-600", "text-white");
+            signupBtn.classList.remove("bg-gray-200", "text-gray-700");
+
+            loginBtn.classList.add("bg-gray-200", "text-gray-700");
+            loginBtn.classList.remove("bg-blue-600", "text-white");
+        }
+    </script>
+
+</body>
+
+</html>
